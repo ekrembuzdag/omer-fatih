@@ -1,0 +1,71 @@
+/* MOBİL ÜST MENÜ */
+@media (max-witdh: 800px) {
+.navbar {
+    width: calc(100% - 24px) !important;
+    height: 76px !important;
+    margin: 0 auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 8px !important;
+}
+
+.logo {
+    font-size: 15px !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+nav {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 7px !important;
+    margin-left: auto !important;
+
+    flex-shrink: 0 !important;
+}
+
+/* Masaüstü Hizmetler ve Hakkımızda mobilde gizli */
+nav > a:not(.menu-buton) {
+    display: none !important;
+}
+
+.menu-buton {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 8px 10px !important;
+
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+.mobil-menu-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+
+    padding: 0 !important;
+
+    font-size: 19px !important;
+    flex-shrink: 0 !important;
+}
+}
+/* Mobilde 3D makası gizle */
+.makas-kapsayici {
+    display: none !important;
+}

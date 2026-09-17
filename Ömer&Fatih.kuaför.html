@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekrem Studio | Modern Web Tasarımı</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <script src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
+    <style>
+    .hero-scissors {
+        transform-origin: center !important;
+        animation: makasGercekDon 8s linear infinite !important;
+    }
+
+    @keyframes makasGercekDon {
+        from {
+            transform: perspective(900px) rotateY(0deg);
+        }
+
+        to {
+            transform: perspective(900px) rotateY(360deg);
+        }
+    }
+</style>
+</head>
+<body>
+   <header class="navbar">
+    <a href="#" class="logo">Ömer&Fatih Kuaför</a>
+
+    <nav>
+       <a href="#" onclick="hizmetlerAc(); return false;">Hizmetler</a>
+     <a href="#" onclick="hakkimizdaAc(); return false;">Hakkımızda</a>
+        <a href="#iletisim" class="menu-button">Randevu Al</a>
+        <button class="mobil-menu-btn" onclick="mobilMenuAc()">☰</button>
+    </nav>
+    <div id="mobilMenu" class="mobil-menu">
+    <a href="#" onclick="hizmetlerAc(); mobilMenuKapat(); return false;">
+        Hizmetler
+    </a>
+
+    <a href="#" onclick="hakkimizdaAc(); mobilMenuKapat(); return false;">
+        Hakkımızda
+    </a>
+</div>
+</header>
+
+<main>
+    <section class="hero">
+      
+        <div class="hero-text">
+            <p class="small-title">ÖMER&FATİH KADIN KUAFÖRÜ</p>
+
+            <h1>
+                Saçınıza yakışan
+                <span>zarif dokunuşlar.</span>
+            </h1>
+
+            <p class="description">
+                Modern kesim, profesyonel renklendirme ve kişiye özel
+                saç bakımıyla güzelliğinizi birlikte tamamlayalım.
+            </p>
+
+            <a href="#iletisim" class="main-button">
+                Randevu Al →
+            </a>
+        </div>
+
+        <div class="hero-panel">
+            <p>HİZMETLERİMİZ</p>
+
+            <div>
+                <span>01</span>
+                <strong>Saç Kesimi</strong>
+            </div>
+
+            <div>
+                <span>02</span>
+                <strong>Renklendirme</strong>
+            </div>
+
+            <div>
+                <span>03</span>
+                <strong>Saç Bakımı</strong>
+            </div>
+        </div>
+    </section>
+   
+
+
+</main>
+<div class="makas-kapsayici" style="
+    position: fixed;
+    top: 130px;
+    right: 40px;
+    width: 420px;
+    height: 600px;
+    overflow: hidden;
+    background: transparent;
+    z-index: 10;
+">
+    <iframe
+    id="makasViewer"
+        title="Gerçekçi 3D kuaför makası"
+        src="https://sketchfab.com/models/3360fd4195da46ae902fb2f1fc2cc2c5/embed?autostart=1&autospin=0.15&preload=1&transparent=1&ui_controls=0&ui_infos=0&ui_stop=0&ui_hint=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0"
+        style="
+            position: absolute;
+            inset: -110px;
+            width: calc(100% + 220px);
+            height: calc(100% + 220px);
+            border: 0;
+            outline: 0;
+            pointer-events: none;
+        "
+        allow="autoplay">
+    </iframe>
+</div>
+<div id="randevu-karartma"></div>
+
+<aside
+    id="randevu-paneli"
+    aria-hidden="true"
+    style="
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 420px;
+        max-width: 100%;
+        height: 100vh;
+        z-index: 9998;
+        padding: 80px 42px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        color: white;
+        background: #111113;
+        border-left: 1px solid rgba(212, 175, 87, 0.4);
+        transform: translateX(110%);
+        transition: transform 0.65s ease;
+    "
+>
+    <button id="randevu-kapat" type="button" aria-label="Paneli kapat">
+        ×
+    </button>
+
+    <p class="panel-etiket">RANDEVU HATTI</p>
+
+    <h2>Güzelliğiniz için<br>bir zaman ayıralım.</h2>
+
+    <p class="panel-aciklama">
+        Randevu oluşturmak için yetkilimizi arayabilirsiniz.
+    </p>
+
+    <a class="yetkili-karti"
+   href="javascript:void(0)"
+   onclick="iletisimAc('Kerem Şahin', '905424998182')">
+        <span>
+            <small>Yetkili</small>
+            <strong>Kerem Şahin</strong>
+        </span>
+
+        <b>0542 499 81 82</b>
+    </a>
+   <a class="yetkili-karti"
+   href="#"
+   onclick="iletisimAc('Ömer Gümüş', '905449476255'); return false;">
+    <span>
+        <small>Yetkili</small>
+        <strong>Ömer Gümüş</strong>
+    </span>
+    <b>0544 947 62 55</b>
+</a>
+
+<!-- Fatih Çam -->
+<a class="yetkili-karti"
+   href="javascript:void(0)"
+   onclick="iletisimAc('Fatih Çam', '905334185271')">
+    <span>
+        <small>Yetkili</small>
+        <strong>Fatih Çam</strong>
+    </span>
+    <b>0533 418 52 71</b>
+</a>
+
+<!-- Erol Kuvel -->
+<a class="yetkili-karti"
+   href="javascript:void(0)"
+   onclick="iletisimAc('Erol Kuvel', '905462415991')">
+    <span>
+        <small>Yetkili</small>
+        <strong>Erol Kuvel</strong>
+    </span>
+    <b>0546 241 59 91</b>
+</a>
+
+<!-- Lokman Taşdemir -->
+<a class="yetkili-karti"
+   href="javascript:void(0)"
+   onclick="iletisimAc('Lokman Taşdemir', '905468486376')">
+    <span>
+        <small>Yetkili</small>
+        <strong>Lokman Taşdemir</strong>
+    </span>
+    <b>0546 848 63 76</b>
+</a>
+</aside>
+<script>
+    const randevuPaneli = document.getElementById("randevu-paneli");
+    const randevuKapat = document.getElementById("randevu-kapat");
+    const karartma = document.getElementById("randevu-karartma");
+    const anaSayfa = document.querySelector("main");
+    const navigasyon = document.querySelector(".navbar");
+
+    const randevuButonlari = [...document.querySelectorAll("a")].filter(
+        (buton) => buton.textContent.toLowerCase().includes("randevu")
+    );
+
+    function paneliAc(event) {
+        event.preventDefault();
+
+        randevuPaneli.style.transform = "translateX(0)";
+        randevuPaneli.setAttribute("aria-hidden", "false");
+
+        anaSayfa.style.transition = "transform 0.65s ease";
+        navigasyon.style.transition = "transform 0.65s ease";
+
+        anaSayfa.style.transform = "translateX(-320px)";
+        navigasyon.style.transform = "translateX(-320px)";
+
+        karartma.style.display = "block";
+        karartma.style.position = "fixed";
+        karartma.style.inset = "0";
+        karartma.style.zIndex = "9997";
+        karartma.style.background = "rgba(0, 0, 0, 0.55)";
+
+        document.body.style.overflow = "hidden";
+    }
+
+    function paneliKapat() {
+        randevuPaneli.style.transform = "translateX(110%)";
+        randevuPaneli.setAttribute("aria-hidden", "true");
+
+        anaSayfa.style.transform = "translateX(0)";
+        navigasyon.style.transform = "translateX(0)";
+
+        karartma.style.display = "none";
+        document.body.style.overflow = "";
+    }
+
+    randevuButonlari.forEach((buton) => {
+        buton.addEventListener("click", paneliAc);
+    });
+
+    randevuKapat.addEventListener("click", paneliKapat);
+    karartma.addEventListener("click", paneliKapat);
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            paneliKapat();
+        }
+    });
+</script>
+<div id="iletisimModal" class="modal">
+    <div class="modal-icerik">
+        <span class="kapat" onclick="iletisimKapat()">×</span>
+
+        <h3 id="kisiAdi"></h3>
+
+        <a id="araLink" class="iletisim-secim">
+            📞 Sesli Ara
+        </a>
+
+        <a id="whatsappLink" class="iletisim-secim whatsapp" target="_blank">
+            💬 WhatsApp
+        </a>
+    </div>
+</div>
+<script>
+function iletisimAc(isim, telefon) {
+    document.getElementById("kisiAdi").textContent = isim;
+
+    document.getElementById("araLink").href =
+        "tel:+" + telefon;
+
+    document.getElementById("whatsappLink").href =
+        "https://wa.me/" + telefon;
+
+    document.getElementById("iletisimModal").style.display = "flex";
+}
+
+function iletisimKapat() {
+    document.getElementById("iletisimModal").style.display = "none";
+}
+
+function hakkimizdaAc() {
+    document.getElementById("hakkimizdaPanel").classList.add("aktif");
+    document.getElementById("hakkimizdaKarartma").classList.add("aktif");
+    document.body.style.overflow = "hidden";
+}
+
+function hakkimizdaKapat() {
+    document.getElementById("hakkimizdaPanel").classList.remove("aktif");
+    document.getElementById("hakkimizdaKarartma").classList.remove("aktif");
+    document.body.style.overflow = "";
+}
+function hizmetlerAc() {
+    document.getElementById("hizmetlerPanel").classList.add("aktif");
+    document.body.style.overflow = "hidden";
+}
+
+function hizmetlerKapat() {
+    document.getElementById("hizmetlerPanel").classList.remove("aktif");
+    document.body.style.overflow = "";
+}
+</script>
+<div id="hakkimizdaKarartma" class="hakkimizda-karartma" onclick="hakkimizdaKapat()"></div>
+
+<section id="hakkimizdaPanel" class="hakkimizda-panel">
+
+    <button class="hakkimizda-kapat" onclick="hakkimizdaKapat()">×</button>
+
+    <p class="hakkimizda-etiket">HAKKIMIZDA</p>
+
+    <h2>Ömer & Fatih Kuaför</h2>
+
+    <p class="hakkimizda-aciklama">
+        Modern kesim, profesyonel renklendirme ve kişiye özel bakım
+        hizmetleriyle güzelliğinizi birlikte tamamlıyoruz.
+    </p>
+
+    <div class="hakkimizda-kutu">
+    <span>📍 KONUM</span>
+
+    <h3>Kuaför Ömer & Fatih</h3>
+
+    <p>
+        19 Mayıs Mah. İnönü Cad. Mehpare Sok.<br>
+        Girişenler Sitesi A Blok No:20/A<br>
+        34736 Kadıköy / İstanbul
+    </p>
+
+    <a href="https://maps.app.goo.gl/dT1CzCB2rZUGMxJt6?g_st=ic"
+       target="_blank">
+        Google Haritalar'da Aç →
+    </a>
+</div>
+
+    <div class="hakkimizda-kutu">
+    <span>★ GOOGLE YORUMLARI</span>
+
+    <h3>4.6 ★</h3>
+
+    <p>109 Google yorumu</p>
+
+    <a href="https://maps.app.goo.gl/dT1CzCB2rZUGMxJt6?g_st=ic"
+       target="_blank">
+        Google Yorumlarını Gör →
+    </a>
+</div>
+</section>
+<section id="hizmetlerPanel" class="hizmetler-panel">
+
+    <button class="hizmetler-kapat" onclick="hizmetlerKapat()">×</button>
+
+    <div class="hizmetler-panel-baslik">
+        <p>UZMANLARIMIZ</p>
+        <h2>Size özel profesyonel hizmetler</h2>
+        <span>İhtiyacınız olan işleme göre uzmanınızı seçebilirsiniz.</span>
+    </div>
+
+    <div class="hizmetler-kartlar">
+
+        <div class="hizmet-kart">
+            <h3>Ömer Gümüş</h3>
+            <p>Saç Uzmanı</p>
+
+            <div class="hizmet-etiketler">
+                <span>Saç Kaynak</span>
+                <span>Saç Kesimi</span>
+                <span>Renklendirme</span>
+            </div>
+        </div>
+
+        <div class="hizmet-kart">
+            <h3>Fatih Çam</h3>
+            <p>Saç Uzmanı</p>
+
+            <div class="hizmet-etiketler">
+                <span>Saç Kesimi</span>
+                <span>Renklendirme</span>
+                <span>Perma</span>
+                <span>Saç Kaynak</span>
+            </div>
+        </div>
+
+        <div class="hizmet-kart">
+            <h3>Kerem Şahin</h3>
+            <p>Saç & Stil Uzmanı</p>
+
+            <div class="hizmet-etiketler">
+                <span>Saç Kesimi</span>
+                <span>Renklendirme</span>
+                <span>Topuz</span>
+                <span>Gelin Saçı</span>
+            </div>
+        </div>
+
+        <div class="hizmet-kart">
+            <h3>Erol Kuvel</h3>
+            <p>Saç & Stil Uzmanı</p>
+
+            <div class="hizmet-etiketler">
+                <span>Saç Kesimi</span>
+                <span>Renklendirme</span>
+                <span>Saç Şekillendirme</span>
+                <span>Topuz</span>
+                <span>Perma</span>
+            </div>
+        </div>
+
+        <div class="hizmet-kart">
+            <h3>Lokman Taşdemir</h3>
+            <p>Saç & Stil Uzmanı</p>
+
+            <div class="hizmet-etiketler">
+                <span>Saç Kesimi</span>
+                <span>Renklendirme</span>
+                <span>Topuz</span>
+                <span>Saç Şekillendirme</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Sadece mobilde çalışsın
+    if (!window.matchMedia("(max-width: 800px)").matches) {
+        return;
+    }
+
+    const iframe = document.getElementById("makasViewer");
+    const modelId = "3360fd4195da46ae902fb2f1fc2cc2c5";
+
+    const client = new Sketchfab("1.12.1", iframe);
+
+    client.init(modelId, {
+
+        autostart: 1,
+        autospin: 0.15,
+        transparent: 1,
+
+        ui_controls: 0,
+        ui_infos: 0,
+        ui_stop: 0,
+        ui_hint: 0,
+        ui_help: 0,
+        ui_settings: 0,
+        ui_vr: 0,
+        ui_fullscreen: 0,
+        ui_annotations: 0,
+
+        success: function(api) {
+
+            api.start();
+
+            api.addEventListener("viewerready", function() {
+
+                api.getCameraLookAt(function(err, camera) {
+
+                    if (err) return;
+
+                    const uzaklik = 1.6;
+
+                    const p = camera.position;
+                    const t = camera.target;
+
+                    const yeniKonum = [
+                        t[0] + (p[0] - t[0]) * uzaklik,
+                        t[1] + (p[1] - t[1]) * uzaklik,
+                        t[2] + (p[2] - t[2]) * uzaklik
+                    ];
+
+                    api.setCameraLookAt(
+                        yeniKonum,
+                        t,
+                        0
+                    );
+                });
+
+            });
+        },
+
+        error: function() {
+            console.log("Sketchfab Viewer başlatılamadı.");
+        }
+    });
+});
+function mobilMenuAc() {
+    const menu = document.getElementById("mobilMenu");
+    menu.classList.toggle("aktif");
+}
+
+function mobilMenuKapat() {
+    const menu = document.getElementById("mobilMenu");
+    menu.classList.remove("aktif");
+}
+</script>
+</body>
+</html>
